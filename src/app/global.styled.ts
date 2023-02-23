@@ -3,12 +3,12 @@ import { createGlobalStyle } from "styled-components";
 import { defaultTheme, Theme } from "./themes";
 
 export const GlobalStyle = createGlobalStyle<{theme: Theme}>`
+
     *{
         margin: 0;
         padding: 0;
         outline: 0;
         box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;
         width: auto;
         height: auto;
     }

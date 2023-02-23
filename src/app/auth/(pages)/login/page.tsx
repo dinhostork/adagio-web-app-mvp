@@ -1,7 +1,6 @@
 "use client";
 
 import AuthLayout from "../../layout";
-import { Container } from "../../resources/components/auth-components";
 
 export default function Login() {
   return (
