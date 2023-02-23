@@ -1,36 +1,54 @@
-"use client";
-
+'use client';
 import Link from "next/link";
-import AuthLayout from "../../layout";
-import { AuthBox, AuthBoxContainer, AuthBoxHeader, AuthForm, InputGroup, Input, RecoverLink, BtnContainer, Button, BottomInfo, Line, H2 } from "../../resources/components/auth-components";
-import { MdOutlineAlternateEmail } from "react-icons/md";
+import { AuthBox, AuthBoxContainer, AuthBoxHeader, AuthForm, InputGroup, Input, BtnContainer, Button, BottomInfo, Line} from "../../resources/components/auth-components";
+import { MdOutlineAlternateEmail, MdPersonOutline } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { ChangeEvent, useState } from "react";
 
-export default function Login() {
+export default function Register() {
+    const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
 
-
   const submit = async () => {
     setLoading(true);
 
-    
+    const response = await fetch("http://localhost:3333/users", {
+      method: "POST",
+      body: JSON.stringify({name, email, password }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
 
-    console.log(email, password, loading)
+    const data = await response.json()
+
+    console.log(data)
   };
 
-  return (
-    <AuthBoxContainer>
+    return(
+        <AuthBoxContainer>
       <AuthBox>
         <AuthBoxHeader>
-          <H2>Bem vindo ao Adagio</H2>
-          <span>Digite seu email e sua senha para entrar </span>
+          <span>Insira seus dados para se juntar à comunidade Adágio </span>
         </AuthBoxHeader>
 
         <AuthForm>
+        <InputGroup>
+            <Input
+              name="name"
+              id="name"
+              placeholder="Nome"
+              type="text"
+              minLength={6}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setName(e.target.value)
+              }
+            />
+            <MdPersonOutline />
+          </InputGroup>
           <InputGroup>
             <Input
               name="email"
@@ -56,11 +74,8 @@ export default function Login() {
             />
             <RiLockPasswordLine />
           </InputGroup>
-          <RecoverLink>
-            <Link href={"/recover"}>Recuperar senha</Link>
-          </RecoverLink>
           <BtnContainer>
-            <Button onClick={(e) => submit()}>Entrar</Button>
+            <Button onClick={(e) => submit()}>Criar Conta</Button>
           </BtnContainer>
         </AuthForm>
       </AuthBox>
@@ -68,9 +83,9 @@ export default function Login() {
       <BottomInfo>
         <Line />
         <span>
-          Ainda não tem uma conta? <Link href={"/auth/register"}>Crie uma agora</Link>
+          Já tem uma conta? <Link href={"/auth/login"}>Entre agora</Link>
         </span>
       </BottomInfo>
     </AuthBoxContainer>
-    );
+  );
 }
