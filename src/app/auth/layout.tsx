@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
+import { LayoutPropsProtocol } from "../LayoutPropsProtocol";
 import { authTheme } from "../themes/auth.theme";
 import {
   AuthPageContainer,
@@ -25,10 +26,8 @@ import {
   TopContainer,
 } from "./resources/components/auth-components";
 
-interface AuthLayoutProps {
-  children: ReactNode;
-}
-export default function AuthLayout({ children }: AuthLayoutProps) {
+
+export default function AuthLayout({ children }: LayoutPropsProtocol) {
   const path = usePathname();
 
   return (
