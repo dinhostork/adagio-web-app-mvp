@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaRegCompass } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { BrowserContainer } from "./Containers";
+import { BrowserContainer } from "./containers";
 import { Browser, BrowserIconContainer, Menu, MenuContainer, MenuItem } from "./Topbar";
 export default function BrowserComponent() {
   const [open, setOpen] = useState(false);

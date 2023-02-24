@@ -12,7 +12,7 @@ import {
   SideBarContainer,
   ThemeIconContainer,
   TopbarContainer,
-} from "./resources/components/Containers";
+} from "./resources/components/containers";
 import {
   GroupTitle,
   Item,
