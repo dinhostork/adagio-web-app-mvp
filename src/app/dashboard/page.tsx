@@ -6,8 +6,11 @@ import { RiUserVoiceLine } from "react-icons/ri";
 import { ThemeProvider } from "styled-components";
 import { authTheme, defaultTheme, Theme } from "../themes";
 import {
+  DarkIconContainer,
+  LightIconContainer,
   PageContainer,
   SideBarContainer,
+  ThemeIconContainer,
 } from "./resources/components/Containers";
 import {
   GroupTitle,
@@ -17,8 +20,10 @@ import {
 } from "./resources/components/Sidebar";
 import {
   MdOutlineArchive,
+  MdOutlineDarkMode,
   MdOutlineGroups,
   MdOutlinePlace,
+  MdOutlineWbSunny,
 } from "react-icons/md";
 import { Divider } from "./resources/components/divider";
 import {
@@ -31,7 +36,12 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function Dashboard() {
-  const [theme, setTheme] = useState(defaultTheme);
+  const [theme, setLocalTheme] = useState(getTheme());
+
+  const togleTheme  = (theme: Theme) => {
+    setTheme(theme)
+    setLocalTheme(theme)
+  } 
   const scrollFriendsBar = () => {
     const bar = document.getElementById("friends-carousel");
     if (bar) {
@@ -39,7 +49,7 @@ export default function Dashboard() {
     }
   };
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={theme}>
       <PageContainer>
         <SideBarContainer>
           <Sidebar show>
@@ -105,6 +115,25 @@ export default function Dashboard() {
                   <IoIosArrowDown />
                 </RollMoreButton>
               </FriendsContainer>
+            </ItemsGroup>
+            <ItemsGroup>
+              <Item>
+                <ThemeIconContainer
+                  onClick={() =>
+                    togleTheme(theme.title == "dark" ? authTheme : defaultTheme)
+                  }
+                >
+                  {theme.title == "dark" ? (
+                    <DarkIconContainer>
+                      <MdOutlineDarkMode />
+                    </DarkIconContainer>
+                  ) : (
+                    <LightIconContainer>
+                      <MdOutlineWbSunny />
+                    </LightIconContainer>
+                  )}
+                </ThemeIconContainer>
+              </Item>
             </ItemsGroup>
           </Sidebar>
         </SideBarContainer>
