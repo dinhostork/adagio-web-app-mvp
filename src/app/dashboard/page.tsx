@@ -1,7 +1,7 @@
 "use client";
 import { getTheme, setTheme } from "@/services/theme.service";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RiUserVoiceLine } from "react-icons/ri";
 import { ThemeProvider } from "styled-components";
 import { authTheme, defaultTheme, Theme } from "../themes";
@@ -36,7 +36,13 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function Dashboard() {
-  const [theme, setLocalTheme] = useState(getTheme());
+  
+
+  const [theme, setLocalTheme] = useState(defaultTheme);
+
+  useEffect(() => {
+    setLocalTheme(getTheme())
+  }, []);
 
   const togleTheme  = (theme: Theme) => {
     setTheme(theme)
