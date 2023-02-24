@@ -34,7 +34,6 @@ export default function Dashboard() {
   const [theme, setTheme] = useState(defaultTheme);
   const scrollFriendsBar = () => {
     const bar = document.getElementById("friends-carousel");
-    console.log(bar);
     if (bar) {
       bar.scrollTop += 50;
     }
