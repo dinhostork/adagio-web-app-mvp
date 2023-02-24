@@ -60,16 +60,40 @@ export const LightIconContainer = styled.div`
 export const TopbarContainer = styled.div`
   height: 80px;
   width: 100%;
-  border-bottom: 1px solid ${props => props.theme.colors.enffort};
+  border-bottom: 1px solid ${(props) => props.theme.colors.enffort};
   display: flex;
   flex-direction: row;
   align-items: center;
   padding-left: 32px;
   padding-right: 32px;
-
-`
+  justify-content: space-around;
+`;
 
 export const BrowserContainer = styled.div`
   width: auto;
   height: auto;
-`
+`;
+
+export const SearchCointainer = styled.form`
+  width: 234px;
+  height: 32px;
+  display: flex;
+  display: flex;
+  justify-content: space-around;
+  color: ${(props) => props.theme.colors.enffort};
+  transition: all 1s;
+  background: transparent;
+  &:focus-within {
+    color: white;
+  }
+  input {
+    transition: all 1s;
+    background: transparent;
+    padding-left: 8px;
+    border: none;
+    color: ${(props) => props.theme.colors.enffort};
+  }
+  input:focus {
+    color: white;
+  }
+`;
