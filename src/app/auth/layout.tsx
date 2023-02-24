@@ -1,5 +1,5 @@
 "use client";
-import { GlobalStyle } from "@/app/global.styled";
+import { GlobalStyle } from "@/styles/global.styled";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
