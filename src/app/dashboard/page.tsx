@@ -11,6 +11,7 @@ import {
   PageContainer,
   SideBarContainer,
   ThemeIconContainer,
+  TopbarContainer,
 } from "./resources/components/Containers";
 import {
   GroupTitle,
@@ -22,6 +23,7 @@ import {
   MdOutlineArchive,
   MdOutlineDarkMode,
   MdOutlineGroups,
+  MdOutlineKeyboardArrowDown,
   MdOutlinePlace,
   MdOutlineWbSunny,
 } from "react-icons/md";
@@ -34,20 +36,19 @@ import {
   RollMoreButton,
 } from "./resources/components/friends";
 import { IoIosArrowDown } from "react-icons/io";
+import BrowserComponent from "./resources/components/Browser";
 
 export default function Dashboard() {
-  
-
   const [theme, setLocalTheme] = useState(defaultTheme);
 
   useEffect(() => {
-    setLocalTheme(getTheme())
+    setLocalTheme(getTheme());
   }, []);
 
-  const togleTheme  = (theme: Theme) => {
-    setTheme(theme)
-    setLocalTheme(theme)
-  } 
+  const togleTheme = (theme: Theme) => {
+    setTheme(theme);
+    setLocalTheme(theme);
+  };
   const scrollFriendsBar = () => {
     const bar = document.getElementById("friends-carousel");
     if (bar) {
@@ -143,6 +144,9 @@ export default function Dashboard() {
             </ItemsGroup>
           </Sidebar>
         </SideBarContainer>
+        <TopbarContainer>
+          <BrowserComponent />
+        </TopbarContainer>
       </PageContainer>
     </ThemeProvider>
   );
