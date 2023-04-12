@@ -38,6 +38,7 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 import BrowserComponent from "./resources/components/Browser";
 import SearchComponent from "./resources/components/Search";
+import IconsComponent from "./resources/components/Icons";
 
 export default function Dashboard() {
   const [theme, setLocalTheme] = useState(defaultTheme);
@@ -148,6 +149,7 @@ export default function Dashboard() {
         <TopbarContainer>
           <BrowserComponent />
           <SearchComponent />
+          <IconsComponent />
         </TopbarContainer>
       </PageContainer>
     </ThemeProvider>

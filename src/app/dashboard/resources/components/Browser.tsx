@@ -9,11 +9,11 @@ export default function BrowserComponent() {
   return (
     <BrowserContainer>
       <Browser onClick={() => setOpen(!open)} open={open}>
-        <BrowserIconContainer rotate={false}>
+        <BrowserIconContainer rotate={'false'}>
           <FaRegCompass id="browser-icon" />
         </BrowserIconContainer>
         <span>Explorar</span>
-        <BrowserIconContainer rotate={open}>
+        <BrowserIconContainer rotate={open.toString()}>
           <MdOutlineKeyboardArrowDown size={32} />
         </BrowserIconContainer>
       </Browser>

@@ -37,15 +37,15 @@ export const Browser = styled.div<{ open: boolean }>`
     }
   }
 `;
-export const BrowserIconContainer = styled.div<{ rotate: boolean }>`
+export const BrowserIconContainer = styled.div<{ rotate: string }>`
   width: 24px;
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all ease 1s;
-  rotate: ${(props) => (props.rotate ? "180deg" : undefined)};
-  color: ${(props) => (props.rotate ? "white" : props.theme.colors.enffort)};
+  rotate: ${(props) => (props.rotate === "true" ? "180deg" : undefined)};
+  color: ${(props) => (props.rotate=== "true" ? "white" : props.theme.colors.enffort)};
 `;
 
 export const MenuContainer = styled.div<{ open: boolean }>`
@@ -88,3 +88,4 @@ export const MenuItem = styled.li`
   justify-content: center;
   margin-bottom: 16px;
 `;
+
