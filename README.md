@@ -3,7 +3,7 @@
 
 Adagio é uma plataforma para músicos que desejam marcar encontros musicais, além disso é possível publicar canções autorais, vídeos, marcar Jam Sessions e muito mais.
 
-Este repositório contem o código fonte e informações relacionadas a aplicação web da Adagio.
+Este repositório contem o código fonte e informações relacionadas a versão mvp utilizada apenas durante o processo de brainstorming e analise de requisitos da aplicação web da Adagio.
 
 Orgulhosamente open-source e desenvolvido com [Next.js](https://nextjs.org/).
 
